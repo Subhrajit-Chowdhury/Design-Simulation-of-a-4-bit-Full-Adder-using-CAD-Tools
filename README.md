@@ -4,15 +4,14 @@
 
 ## Project Overview
 
-This project tackles the architecture and simulation of a **4-bit binary adder**, starting from basic logic gates (AND, OR, XOR), building up to Full Adders, and then connecting them to create ripple carry and carry look ahead architectures. Both schematic circuit design in Cadence Virtuoso (backed by the TSMC 180nm process) and RTL modeling with Verilog (XNilinx Vivado) are featured, each complementing the other in the design flow.[1][2]
+This project tackles the architecture and simulation of a **4-bit binary adder**, starting from basic logic gates (AND, OR, XOR), building up to Full Adders, and then connecting them to create ripple carry and carry look ahead architectures. Both schematic circuit design in Cadence Virtuoso (backed by the TSMC 180nm process) and RTL modeling with Verilog (XNilinx Vivado) are featured, each complementing the other in the design flow.
 
 ***
 
 ## Tools Used
 
-- **Cadence Virtuoso & ADE** – For schematic entry, transistor-level simulation, and layout using standard cell libraries for TSMC 180nm CMOS process.[3]
+- **Cadence Virtuoso & ADE** – For schematic entry, transistor-level simulation using standard cell libraries for TSMC 180nm CMOS process
 - **Xilinx Vivado** – For coding, simulating, and verifying behavioral and gate-level models in Verilog and developing testbenches.
-- **Peripheral scripts** & data plotting utilities where needed.
 
 ***
 
