@@ -1,4 +1,4 @@
-# Design-Simulation-and-of-a-4-bit-Adder-using-CAD-Tools
+# Design-&-Simulation-of-a-4-bit-Adder-using-CAD-Tools
 
 ***
 
