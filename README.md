@@ -62,9 +62,13 @@ This project tackles the architecture and simulation of a **4-bit binary adder**
 | Ripple Carry          | **Slower** | Lower              | Easier             | Simple to build, poor delay scaling |
 | Carry Look Ahead      | **Faster** | Higher              | Harder             | Complex logic, better timing        |
 
+**Ripple Carry Adder:**
+![Image](https://github.com/user-attachments/assets/13f0fed0-14f3-4ce6-9172-172cb3f2ada5)
+
+ **Carry Look Ahead Adder:** 
+![Image](https://github.com/user-attachments/assets/c6d4cd21-c157-4fb5-9a4f-e40272606edd)
 - **Ripple Carry Adder:** Each bit waits for the carry from the previous stage—delay grows linearly with bit width. The architecture is simple and area-efficient but not suitable for high-speed designs.
 - **Carry Look Ahead Adder:** Carry signals are computed in parallel using logic equations—significantly reduces total computation time, but at the cost of increased area and gate count. Ideal for situations where speed is prioritized over silicon area.
-- **Vivado Results:** Timing summary and area analysis in Vivado underline that **carry look ahead adders consistently outpace ripple carry adders in terms of computation speed—especially as bit width increases**, while ripple carry adders use less FPGA resources in small designs.
 
 ***
 
