@@ -35,8 +35,8 @@ This project tackles the architecture and simulation of a **4-bit binary adder**
 - **Process:** Standard cell design and transient simulation for all gates and adders.
 - **Performance Metrics Monitored:** Propagation delay, signal integrity, power dissipation, area.
 - **Observations:** 
-  - During transient simulation, an **unexpected peak overshoot** was observed at switching events (output transitions) in some signals. The cause typically traced back to **parasitic capacitances/inductances not fully captured in ideal transient models, probe placement, or measurement environment**.[4][3]
-  - In real silicon, such overshoot may also arise due to insufficient modeling of board/package parasitics and non-ideal probing (long ground leads, input impedance mismatches). In simulation, overshoot can be mitigated by adjusting simulation parameters, optimizing ground connections, and improving modeling of probe behavior.[3]
+  - During transient simulation, an **unexpected peak overshoot** was observed at switching events (output transitions) in some signals. The cause typically traced back to **parasitic capacitances/inductances not fully captured in ideal transient models, probe placement, or measurement environment**.
+  - In real silicon, such overshoot may also arise due to insufficient modeling of board/package parasitics and non-ideal probing (long ground leads, input impedance mismatches). In simulation, overshoot can be mitigated by adjusting simulation parameters, optimizing ground connections, and improving modeling of probe behavior.
 
 ***
 
@@ -51,7 +51,7 @@ This project tackles the architecture and simulation of a **4-bit binary adder**
    - Provides insight into critical path delays and resource usage/slice utilization in FPGA context.
 
 ### 3. Testbenches
-   - Test cases spanning all input combinations for sum and carry. Highlights correct carry propagation and overflow cases.[5]
+   - Test cases spanning all input combinations for sum and carry. Highlights correct carry propagation and overflow cases.
 
 ***
 
@@ -59,22 +59,22 @@ This project tackles the architecture and simulation of a **4-bit binary adder**
 
 | Adder Type            | Speed        | Area (Complexity) | Implementation Ease | Pros/Cons                           |
 |-----------------------|-------------|-------------------|--------------------|-------------------------------------|
-| Ripple Carry          | **Slower**[6] | Lower              | Easier             | Simple to build, poor delay scaling |
-| Carry Look Ahead      | **Faster**[7][6] | Higher              | Harder             | Complex logic, better timing        |
+| Ripple Carry          | **Slower** | Lower              | Easier             | Simple to build, poor delay scaling |
+| Carry Look Ahead      | **Faster** | Higher              | Harder             | Complex logic, better timing        |
 
-- **Ripple Carry Adder:** Each bit waits for the carry from the previous stage—delay grows linearly with bit width. The architecture is simple and area-efficient but not suitable for high-speed designs.[2][6]
-- **Carry Look Ahead Adder:** Carry signals are computed in parallel using logic equations—significantly reduces total computation time, but at the cost of increased area and gate count. Ideal for situations where speed is prioritized over silicon area.[6][7][1]
-- **Vivado Results:** Timing summary and area analysis in Vivado underline that **carry look ahead adders consistently outpace ripple carry adders in terms of computation speed—especially as bit width increases**, while ripple carry adders use less FPGA resources in small designs.[7][2]
+- **Ripple Carry Adder:** Each bit waits for the carry from the previous stage—delay grows linearly with bit width. The architecture is simple and area-efficient but not suitable for high-speed designs.
+- **Carry Look Ahead Adder:** Carry signals are computed in parallel using logic equations—significantly reduces total computation time, but at the cost of increased area and gate count. Ideal for situations where speed is prioritized over silicon area.
+- **Vivado Results:** Timing summary and area analysis in Vivado underline that **carry look ahead adders consistently outpace ripple carry adders in terms of computation speed—especially as bit width increases**, while ripple carry adders use less FPGA resources in small designs.
 
 ***
 
 ## Observed Peak Overshoot: Causes & Mitigation
 
 - **Observation:** A peak overshoot (“ringing”) occurred during transitions in Cadence simulation outputs.
-- **Reason:** The **overshoot** is generally due to circuit parasitics (capacitance, inductance) and non-ideal ground/probing in simulation setups.[4][3]
+- **Reason:** The **overshoot** is generally due to circuit parasitics (capacitance, inductance) and non-ideal ground/probing in simulation setups.
   - Real chips: Even with optimal design, probe placement, ground lead inductance, and external interference can result in highlights of transient voltage spikes.
   - Simulation: Conservative transient simulation settings may mask some effects; be sure to properly model all board/package and probe parasitics for faithful results.
-- **Mitigation:** Optimize probe models, ground connection fidelity, and ensure simulation parameters mirror real-world environment.[3]
+- **Mitigation:** Optimize probe models, ground connection fidelity, and ensure simulation parameters mirror real-world environment.
 
 ***
 
